@@ -7,7 +7,7 @@ import {useParams} from 'react-router-dom'
 export function SingleStore() {
 
     const ctx = useContext(StoreContext)
-    const { singleStore, getStore} = ctx
+    const { singleStoreC, getStore} = ctx
 
     const params = useParams()
     const id = params.id
@@ -20,8 +20,8 @@ export function SingleStore() {
             Obtener Store individual
         </button>
 
-        <h1>{singleStore.domicilio}</h1>
-        <h1>{singleStore.telefono}</h1>
+        <h1>{singleStoreC.domicilio}</h1>
+        <h1>{singleStoreC.telefono}</h1>
 
 
         </div>

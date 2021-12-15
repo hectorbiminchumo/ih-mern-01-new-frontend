@@ -40,6 +40,7 @@ const Router = () => {
 							<Route path="guitarras/:id" element={<Single />} />
 							<Route path="stores" element={<Stores />} />
 							
+							
 						</Route>
 					</Routes>
 				</BrowserRouter>
