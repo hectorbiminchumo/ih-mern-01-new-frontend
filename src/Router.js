@@ -9,13 +9,12 @@ import Home from './components/Home'
 import Layout from './components/Layout'
 import Guitars from './components/Guitars'
 import Single from './components/Guitars/Single'
-import Stores from './components/Stores'
-
+import CreateGuitar from './components/Guitars/Create'
+import CreateStore from './components/Stores/CreateStore'
 
 import GuitarState from './context/Guitar/GuitarState'
 import StoreState from './context/Store/StoreState'
-
-
+import Stores from './components/Stores'
 
 
 // 2. FUNCIÓN
@@ -36,11 +35,15 @@ const Router = () => {
 							<Route path="iniciar-sesion" element={<Login />} />
 							{/* localhost:3000/guitarras */}
 							<Route path="guitarras" element={<Guitars />} />
-								{/* localhost:3000/guitarras/:id */}
-							<Route path="guitarras/:id" element={<Single />} />
+							{/* localhost:3000/guitarras/crear */}
+							<Route path="guitarras/crear" element={<CreateGuitar />} />
+							{/* localhost:3000/stores/crear */}
+						
 							<Route path="stores" element={<Stores />} />
-							
-							
+							<Route path="stores/crear" element={<CreateStore />} />
+							{/* localhost:3000/guitarras/:id */}
+							<Route path="guitarras/:id" element={<Single />} />
+
 						</Route>
 					</Routes>
 				</BrowserRouter>

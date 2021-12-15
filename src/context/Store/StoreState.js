@@ -2,11 +2,18 @@ import { useReducer } from "react";
 import StoreContext from './StoreContext'
 import StoreReducer from './StoreReducer'
 
+import axiosClient from './../../config/axios'
+
 const StoreState = (props) => {
 
 // 1. INITIAL STATE 
     const initialState = {
         stores: [],
+        singleStore:{
+            domicilio:"",
+            telefono:""
+
+        },
         hola: "mundo"
 
     }
