@@ -31,6 +31,51 @@ const StoreState = (props) => {
 
 }
 
+    const getStores = async () => {
+
+        const res = await axiosClient.get("stores/readall")
+
+        console.log("Obteniendo stores...");
+
+        const list = res.data.data
+
+        dispatch({
+            type: "GET_STORES",
+            payload: list
+        })
+    }
+
+    const getStore = async (storeId) => {
+
+        const res = await axiosClient.get(`stores/readone/${storeId}`)
+
+        const selectedStore = res.data.data
+
+        dispatch({
+            type: "GET_STORE",
+            payload: selectedStore
+        })
+
+    }
+
+    const createStore = async (form) => {
+
+        const res = await axiosClient.post("stores/create",form)
+        console.log(res);
+    }
+
+    const updateStore = async (form, idStore) => {
+
+        const res = await axiosClient.put(`stores/edit/${idStore}`,form)
+
+        const updatedStore = res.data.data
+
+        dispatch({
+            type: "UPDATE_STORE",
+            payload: updatedStore
+        })
+
+    }
 
  //4. RETORNO
  return(
@@ -38,7 +83,12 @@ const StoreState = (props) => {
         value={{
             stores: globalState.stores,
             hola: globalState.hola,
-            changeText
+            singleStore: globalState.singleStore,
+            changeText,
+            getStores,
+            getStore,
+            createStore,
+            updateStore
         }}>
             {props.children}
 
